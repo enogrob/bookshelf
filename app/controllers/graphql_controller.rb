@@ -14,6 +14,7 @@ class GraphqlController < ApplicationController
 
     context = {
       current_user: session&.user,
+      session_id: session&.id
     }
 
     result = BookshelfSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
